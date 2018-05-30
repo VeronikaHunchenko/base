@@ -152,12 +152,17 @@ tbody tr:nth-child(even) {
 }
 .button:hover span {
 	color: #fff;
+	text-decoration: none;
 }
 .button:hover {
 	background-color: #024f60;
+	color: #fff;
+	text-decoration: none;
 }
 .button:active {
 	background-color: #024f60;
+	color: #fff;
+	text-decoration: none;
 }
 /* ----  Form  ----*/
 fieldset {
