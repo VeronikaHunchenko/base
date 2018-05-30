@@ -32,6 +32,10 @@ h6, p, blockquote, pre,  code {
 	font-size: 14px;
 	font-family: sans-serif;
 }
+img, canvas {
+	max-width: 100%;
+	height: auto;
+}
 blockquote {
 	font-style: italic;
 	border-left-style: solid;
@@ -52,40 +56,37 @@ a:hover {
 	text-decoration: underline;
 	color: #024f60;
 }
-ul {
-	list-style-type: square;
-	color: #007975;
+img {
+	max-width: 100%;
+	height: auto;
 }
+/*Вместо моей короткой записи, лучше использовать длинную, так как при
+увеличении контента, отступ от лишки текста будет не одинаковый*/ 
+/*ul { list-
+	style-type: square;
+	color: #007975; 
+}*/ 
+ul:not([class]) {     
+	list- style:none; 
+} 
+ul:not([class]) > li { 
+	display: flex; 
+} 
+ul:not([class]) > li:before {
+	content: ''; 
+	width: 5px;     
+	height: 5px;     
+	margin-top: 7px; 
+	margin-left: -16px;     
+	background- color: #0f7e96;     
+	margin-right: 10px; 
+} 
 li span {
-	color: #222222;
-}
-ul:nth-child(2) {
-	color: #409b98;
-}
-
-hr {
-	color: #444444;
-}
-ol li {
-	color: #222222;
-}
-li {
-	padding-bottom: 10px;
-}
-ul:nth-child(2) {
-	padding-top: 20px;
-}
-ol li:nth-child(1) {
-	padding-top: 20px;
-}
-hr {
-	border-width: 1px;
-	border-bottom: 0;
-	color: #222222;
-}
-caption {
-	line-height: 4;
-}
+color: #222222; } ul:nth-child(2) {     color: #409b98; } ol li {     color:
+#222222; } hr {     color: #444444; } li { padding-bottom: 10px; } ul :nth-
+child(2) {     padding-top: 20px; } ol li:nth-child(1) { padding- top: 20px; }
+hr {     border-width: 1px; border-bottom: 0; color: #222222; } caption {
+line-height: 4; }
 
 /*  ----  Table  ----*/
 table {
@@ -108,26 +109,26 @@ thead tr:nth-child(odd) {
 tbody tr:nth-child(even) {
   	background-color:#f6f6f6;
 }
+
 /* ----  Button  ----*/
 .button {
-	width: 137px;
-	height: 38px;
+	min-width: 137px;
+	min-height: 38px;
 	border: 0;
 	color: #fff;
 	background-color: #0f7e96;
-	text-align: center;
-    text-decoration: none;
-    display: block;
-    vertical-align: middle;
+	text-decoration: none;
+    display: inline-flex;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
     margin-bottom: 30px;
+    box-sizing: border-box;
+    user-select: none;
 }
 .button:hover span {
 	color: #fff;
-}
-.button-before {
-	display: inline-block;
-    margin-top: 7%;
 }
 .button:hover {
 	background-color: #024f60;
@@ -149,11 +150,11 @@ input[type="text"], [type="password"], [type="url"], [type="email"],
 [type="tel"], [type="search"], [type="number"], [type="date"], [type="month"], [type="week"], [type="datetime-local"], [type="time"]:focus::placeholder {     
 	font-size: 14px;
 	font-style: italic;
+	padding: 6px 12px;
 }
 input { 
-	display: block;
-	width: 600px;
-	height: 38px;
+	min-width: 600px;
+	min-height: 38px;
 	padding-left: 15px;
 }
 input[type="file"] {
@@ -186,18 +187,25 @@ input[type="radio"], [type="checkbox"] {
 input[type="submit"], [type="reset"] {
 	margin-top: 10px;
 }
+/* Вместо того как сделала я, лучше сделать через background-image*/
 select {
 	width: 347px;
 	height: 39px;
 	margin-top: 10px;
-	align-items: center;
-	padding-right: 25px;
+	border: 1px solid #ccc;
+	padding-left: 25px;
   	-webkit-appearance: none;
  	-moz-appearance: none;
   	appearance: none;
-  	display: block;
+  	display: inline-block;
 }
-.arrow-select {
+select:first-child {
+	background-image: url(../../images/arrow.png);
+	background-position: 319px 13px;
+	background-repeat: no-repeat;
+
+}
+/*.arrow-select {
 	position: relative;
   	display: inline-block;
 }
@@ -215,7 +223,7 @@ select {
   	height: 100%;
   	pointer-events: none;
   	box-sizing: border-box;
-}
+}*/
 option {
 	margin-left: 10px;
 
